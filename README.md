@@ -1,3 +1,3 @@
 # menuIcon
 
-[Preview](https://oufcena.github.io/menuIcon/)
+[Preview](https://oufcena.github.io/menuIcon/menuIcon.html)
