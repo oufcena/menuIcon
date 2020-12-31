@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<body>
+<script>
+function menu(JSX=document.body) {
+  var CSS, JS, HTML=''; 
+  
+  CSS = [
+    `
+      cursor: pointer;
+      margin: 200px auto;
+      width: 100px;
+    `,
+    `
+      background: #000;
+      height: 14px;
+      margin-bottom: 10px;
+      position: relative;
+      top: 0;
+      transition: all ease-in-out 0.4s;
+    `
+  ];
+  
+  JS = [
+    `
+      var x = this.children;
+      if(x[0].style['transform'] == 'rotate(-45deg)') {
+        x[0].style.cssText += \`
+          transform: rotate(0deg);
+          top: 0;
+        \`;
+        x[1].style.cssText += \`
+          opacity: 1;
+        \`;
+        x[2].style.cssText += \`
+          opacity: 1;
+        \`;
+        x[3].style.cssText += \`
+          transform: rotate(0deg);
+          top: 0;
+        \`;       
+      } else {
+        x[0].style.cssText += \`
+          transform: rotate(-45deg);
+          top: 2.25em;
+        \`;
+        x[1].style.cssText += \`
+          opacity: 0;
+        \`;
+        x[2].style.cssText += \`
+          opacity: 0;
+        \`;
+        x[3].style.cssText += \`
+          transform: rotate(45deg);
+          top: -2.25em;
+        \`;
+      }
+    `
+  ];
+  
+  HTML += `
+  <section style="${CSS[0]}" onclick="${JS[0]}">
+    <div style="${CSS[1]}"></div>
+    <div style="${CSS[1]}"></div>
+    <div style="${CSS[1]}"></div>
+    <div style="${CSS[1]}"></div>
+  </section>
+  `;
+  
+  JSX.innerHTML += HTML; 
+} 
+</script>  
+
+<div style="background: yellow;">
+  <script>menu(document.currentScript.parentElement)</script>
+</div>
+
+</body>
+</html>
